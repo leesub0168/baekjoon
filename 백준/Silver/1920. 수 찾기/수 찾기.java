@@ -19,7 +19,7 @@ class BinarySearch {
             sb.append(search(arr,target));
             if(i != m-1) sb.append("\n");
         }
-        System.out.println(sb.toString());
+        System.out.print(sb.toString());
     }
     
     public int search(int[] arr, int target) {
@@ -27,12 +27,11 @@ class BinarySearch {
         int end = arr.length - 1;
         while(st <= end) {
             int mid = (st + end)/2;
-            if(arr[mid] < target) {
-                st = mid + 1;
-            }else if(arr[mid] > target) {
-                end = mid -1;
+            if(arr[mid] == target) return 1;
+            else if(arr[mid] > target) {
+                end = mid - 1;
             }else {
-                return 1;
+                st = mid + 1;
             }
         }
         return 0;
