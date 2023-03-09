@@ -23,7 +23,8 @@ public class Main {
             for (String s : map.keySet()) {
                 answer *= (map.get(s) + 1);
             }
-            sb.append(answer-1).append("\n");
+            answer -= 1;
+            sb.append(answer).append("\n");
         }
         System.out.println(sb);
     }
