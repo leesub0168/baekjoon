@@ -5,20 +5,20 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        HashMap<String, String> hashMap = new LinkedHashMap<>();
+        TreeSet<String> set = new TreeSet<>();
         for(int i=0;i<n;i++) {
             String[] srr = br.readLine().split(" ");
-            hashMap.put(srr[0], srr[1]);
+            String name = srr[0];
+            String status = srr[1];
+            if(status.equals("enter")) set.add(name);
+            else set.remove(name);
         }
 
-        List<String> list = new ArrayList<>();
-        for (String str : hashMap.keySet()) {
-            if(hashMap.get(str).equals("enter")) list.add(str);
+        Iterator<String> iterator = set.descendingIterator();
+        StringBuilder sb = new StringBuilder();
+        while (iterator.hasNext()) {
+            sb.append(iterator.next()).append("\n");
         }
-
-        Collections.sort(list, Collections.reverseOrder());
-        for(String s : list) {
-            System.out.println(s);
-        }
+        System.out.println(sb.toString());
     }
 }
