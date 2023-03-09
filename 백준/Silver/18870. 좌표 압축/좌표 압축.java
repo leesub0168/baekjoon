@@ -12,13 +12,15 @@ class Test {
         
         int[] sortArr = Arrays.copyOf(arr, n);
         Arrays.sort(sortArr);
-        
+
         List<Integer> list = new ArrayList<>();
         for(int i=0;i<n;i++) {
             if(i == 0 || sortArr[i-1] != sortArr[i]) list.add(sortArr[i]);
         }
-        
         Integer[] removeDupl = list.toArray(new Integer[0]);
+        /** 중복제거시 stream을 이용해서 간단하게 구현하는것도 가능. */
+//        int[] removeDupl = Arrays.stream(sortArr).distinct().toArray();
+
         StringBuilder sb = new StringBuilder();
         for(int i=0;i<n;i++) {
             sb.append(search(removeDupl, arr[i])).append(" ");
