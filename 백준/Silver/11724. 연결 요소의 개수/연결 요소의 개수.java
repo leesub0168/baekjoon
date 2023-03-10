@@ -10,9 +10,9 @@ public class Main {
         int m = Integer.parseInt(arr[1]);
 
 
-        Vector<Integer>[] vectors = new Vector[n+1];
+        ArrayList<Integer>[] vectors = new ArrayList[n+1];
         for (int i = 1; i < n + 1; i++) {
-            vectors[i] = new Vector<>();
+            vectors[i] = new ArrayList<>();
         }
         
         for (int i=0;i<m;i++) {
