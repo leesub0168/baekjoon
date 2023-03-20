@@ -9,7 +9,7 @@ public class Main {
         int max = Integer.parseInt(st.nextToken());
         
         List<Integer> list = new ArrayList<>();
-        boolean[] state = new boolean[2000001];
+        boolean[] state = new boolean[max+1];
         Arrays.fill(state, true);
         state[1] = false;
         StringBuilder sb = new StringBuilder();
