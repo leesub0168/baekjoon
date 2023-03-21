@@ -13,8 +13,8 @@ class Test {
         
         int last = LCM(LCM(p1,p2),p3);
         
-        for(int i=1;i<=last;i++) {
-            if(i % p1 == x1 && i % p2 == x2 && i % p3 == x3) {
+        for(int i=x1;i<=last;i+=p1) {
+            if(i % p2 == x2 && i % p3 == x3) {
                 System.out.println(i);
                 return;
             }
