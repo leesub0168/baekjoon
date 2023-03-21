@@ -11,10 +11,9 @@ class Test {
         int x2 = Integer.parseInt(st.nextToken());
         int x3 = Integer.parseInt(st.nextToken());
         
-        int start = GCD(GCD(p1,p2),p3);
         int last = LCM(LCM(p1,p2),p3);
         
-        for(int i=start;i<=last;i++) {
+        for(int i=1;i<=last;i++) {
             if(i % p1 == x1 && i % p2 == x2 && i % p3 == x3) {
                 System.out.println(i);
                 return;
