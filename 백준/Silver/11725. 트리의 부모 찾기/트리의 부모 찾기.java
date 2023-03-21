@@ -1,17 +1,16 @@
 import java.util.*;
 import java.io.*;
-class Test {
-    List<Integer>[] lists;
-    int[] p;
-    public void solution(BufferedReader br) throws Exception {
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int vertex = Integer.parseInt(br.readLine());
-        lists = new ArrayList[vertex+1];
-        p = new int[vertex+1];
         
-        for(int i = 0; i < vertex + 1; i++) {
+        List<Integer>[] lists = new ArrayList[vertex + 1];
+        for(int i = 0; i < vertex + 1; i++ ) {
             lists[i] = new ArrayList<>();
         }
-        for(int i = 1; i < vertex; i++) {
+        for(int i = 0; i < vertex-1; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int u = Integer.parseInt(st.nextToken());
             int v = Integer.parseInt(st.nextToken());
@@ -19,26 +18,26 @@ class Test {
             lists[u].add(v);
             lists[v].add(u);
         }
-        dfs(1);
+        
+        int[] p = new int[vertex+1];
+        
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(1);
+        
+        while(!queue.isEmpty()) {
+            int cur = queue.poll();
+            
+            for(int nxt : lists[cur]) {
+                if(p[cur] == nxt) continue;
+                queue.add(nxt);
+                p[nxt] = cur;
+            }
+        }
         
         StringBuilder sb = new StringBuilder();
-        for(int i = 2;i <= vertex; i++) {
+        for(int i=2;i<=vertex;i++) {
             sb.append(p[i]).append("\n");
         }
         System.out.println(sb);
-    }
-    public void dfs(int cur) {
-        for(int nxt : lists[cur]) {
-            if(p[cur] == nxt) continue;
-            p[nxt] = cur;
-            dfs(nxt);
-        }
-    }
-}
-public class Main {
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Test test = new Test();
-        test.solution(br);
     }
 }
