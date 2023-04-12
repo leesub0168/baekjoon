@@ -14,7 +14,7 @@ public class Main {
         
         int max = -1;
         int idx = -1;
-        int[] counts = new int[500000];
+        int[] counts = new int[100000];
         for(int i=0; i < 26; i++) {
             if(arr[i] > 0 ) {
                 counts[arr[i]]++;
