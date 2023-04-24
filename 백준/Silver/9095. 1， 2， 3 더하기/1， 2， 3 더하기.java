@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int cnt = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
         while(cnt > 0) {
             int n = Integer.parseInt(br.readLine());
             int[] arr = new int[12];
@@ -16,8 +17,9 @@ public class Main {
                 arr[i] = arr[i-1] + arr[i-2] + arr[i-3];
             }
         
-            System.out.println(arr[n]);
+            sb.append(arr[n]).append("\n");
             cnt--;
         }
+        System.out.println(sb);
     }
 }
