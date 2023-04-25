@@ -29,11 +29,11 @@ public class Main {
             }
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(arr[n] + "\n");
-        sb.append(n + " ");
+        sb.append(arr[n]).append("\n");
+        sb.append(n).append(" ");
         
         while (n > 1) {
-            sb.append(step[n]+ " ");
+            sb.append(step[n]).append(" ");
             n = step[n];
         }
         System.out.println(sb);
