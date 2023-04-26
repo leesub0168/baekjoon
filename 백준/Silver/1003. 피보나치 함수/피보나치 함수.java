@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int tc = Integer.parseInt(br.readLine());
-        int[] arr = new int[45];
+        int[] arr = new int[42];
         
         arr[1] = 1;
         arr[2] = 1;
