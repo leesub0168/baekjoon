@@ -1,6 +1,15 @@
 import java.util.*;
 import java.io.*;
 
+class Pair {
+    int x;
+    int y;
+
+    public Pair(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,22 +39,21 @@ public class Main {
                 if(arr[i][j] == 0 || vis[i][j]) continue;
                 num++;
 
-                ArrayDeque<AbstractMap.SimpleEntry<Integer,Integer>> deque = new ArrayDeque<>();
+                Queue<Pair> queue = new ArrayDeque<>();
                 vis[i][j] = true;
-                deque.push(new AbstractMap.SimpleEntry<>(i,j));
+                queue.add(new Pair(i,j));
                 int area = 0;
-                while (!deque.isEmpty()) {
+                while (!queue.isEmpty()) {
                     area++;
-                    AbstractMap.SimpleEntry<Integer,Integer> s = deque.getFirst();
-                    deque.pop();
+                    Pair pair =  queue.poll();
 
                     for(int dir=0;dir<4;dir++) {
-                        int nx = s.getKey() + dx[dir];
-                        int ny = s.getValue() + dy[dir];
+                        int nx = pair.x + dx[dir];
+                        int ny = pair.y + dy[dir];
                         if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
                         if(vis[nx][ny] || arr[nx][ny] != 1) continue;
                         vis[nx][ny] = true;
-                        deque.push(new AbstractMap.SimpleEntry<>(nx,ny));
+                        queue.add(new Pair(nx,ny));
                     }
                 }
 
