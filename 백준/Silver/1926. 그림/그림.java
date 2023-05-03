@@ -13,13 +13,12 @@ class Pair {
 public class Main {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         StringTokenizer st1 = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st1.nextToken());
         int m = Integer.parseInt(st1.nextToken());
 
-        int[][] arr = new int[502][502];
+        int[][] arr = new int[n][m];
         for(int i=0;i<n;i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             for(int j=0;j<m;j++) {
@@ -27,7 +26,7 @@ public class Main {
             }
         }
 
-        boolean[][] vis = new boolean[502][502];
+        boolean[][] vis = new boolean[n][m];
 
         int[] dx = {1,0,-1,0};
         int[] dy = {0,1,0,-1};
@@ -61,9 +60,7 @@ public class Main {
             }
         }
 
-        bw.write(num + "\n");
-        bw.write(mx + "\n");
-        bw.flush();
-        bw.close();
+        System.out.println(num);
+        System.out.println(mx);
     }
 }
