@@ -8,24 +8,17 @@ public class Main {
         int num1 = Integer.parseInt(st.nextToken());
         int num2 = Integer.parseInt(st.nextToken());
         
-        List<Integer> list = new ArrayList<>();
-        
-        for (int i = 1; i * i <= num1; i++) {
+        int cnt = 0;
+        for (int i = 1; i <= num1; i++) {
             if(num1 % i == 0) {
-                list.add(i);
-                if(i != (num1 / i)) {
-                    list.add(num1 / i);
+                cnt++;
+                if(cnt == num2) {
+                    System.out.println(i);
+                    return;
                 }
             }
         }
-
-        Collections.sort(list);
-        
-        if(list.size() >= num2) {
-            System.out.println(list.get(num2-1));
-        }else {
-            System.out.println(0);
-        }
+        System.out.println(0);
         
     }
 }
