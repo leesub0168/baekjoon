@@ -8,7 +8,7 @@ class Test {
     }
     
     public int LCM(int num1, int num2) {
-        return num1 / GCD(num1, num2) * num2;
+        return num1 * num2 / GCD(num1, num2);
     }
 }
 
