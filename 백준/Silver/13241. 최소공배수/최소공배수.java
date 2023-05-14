@@ -6,6 +6,10 @@ class Test {
         if(num2 == 0) return num1;
         return GCD(num2, num1 % num2);
     }
+    
+    public long LCM(long num1, long num2) {
+        return num1 * num2 / GCD(num1, num2);
+    }
 }
 
 public class Main {
@@ -17,6 +21,6 @@ public class Main {
         long num1 = Long.valueOf(st.nextToken());
         long num2 = Long.valueOf(st.nextToken());
         
-        System.out.println(num1 * num2 / test.GCD(num1, num2));
+        System.out.println(test.LCM(num1, num2));
     }
 }
