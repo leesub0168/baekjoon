@@ -9,10 +9,10 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         
         st = new StringTokenizer(br.readLine());
-        Map<String, String> maps = new HashMap<>(); 
+        Map<String, Boolean> maps = new HashMap<>(); 
         for(int i = 0; i < n; i++) {
             String str = st.nextToken();
-            maps.put(str, str);
+            maps.put(str, true);
         }
         
         int cnt = 0;
